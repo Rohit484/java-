@@ -1,0 +1,42 @@
+
+class furniture
+{
+    String type,material;
+    int price;
+    furniture()//Default Counstractor
+    {
+    	type="Table";
+    	material="Wood";
+    	price=23000;
+    }
+    furniture(String ty)
+    {
+    	type=ty;
+    	material="Plastic";
+    	price=400;
+    }
+    furniture(String tt,String tm)
+    {
+    	type=tt;
+    	String=tm;
+    	int=4554;
+    }
+    
+    void show()
+    {
+    	System.out.println("Type: "+type);
+    	System.out.println("Material: "+material);
+    	System.out.println("Price: "+price);
+    }
+}
+ class consts {
+             public static void main(String[]args)
+             {
+            	 furniture sf=new furniture();
+            	 furniture of=new furniture("Toy");
+            	 furniture hf=new furniture("Shelf","Steel");
+            	 of.show();
+            	 hf.show();
+            	 
+             }
+}
