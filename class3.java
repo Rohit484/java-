@@ -8,13 +8,22 @@
  *
  * @author ROHIT PANDEY
  */
-public class class10 {
+import java.util.Scanner;
+public class class3 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner s=new Scanner(System.in);
+        int a,b,c;
+        System.out.println("Enter the first value: ");
+        a=s.nextInt();
+        System.out.println("Enter the second value: ");
+        b=s.nextInt();
+        c=a+b;
+        System.out.println("Here your total sum is: "+c);
+        
     }
     
 }

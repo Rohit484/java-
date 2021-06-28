@@ -9,12 +9,12 @@
  * @author ROHIT PANDEY
  */
 import java.io.*;
-public class class11 extends javax.swing.JFrame {
+;public class Class16 extends javax.swing.JFrame {
 
     /**
-     * Creates new form class11
+     * Creates new form Class16
      */
-    public class11() {
+    public Class16() {
         initComponents();
     }
 
@@ -30,95 +30,84 @@ public class class11 extends javax.swing.JFrame {
         jOptionPane1 = new javax.swing.JOptionPane();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Enter Your Equation ");
+        jLabel1.setText("Source File");
 
-        jButton1.setText("Solve");
+        jLabel2.setText("Target File");
+
+        jButton1.setText("Okay");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Solution");
-
-        jLabel3.setText("jLabel3");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel2)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
-                .addGap(32, 32, 32)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(112, 112, 112)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+                    .addComponent(jTextField1))
+                .addGap(326, 326, 326))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(154, 154, 154)
                 .addComponent(jButton1)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(31, 31, 31)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel3)))
-                .addContainerGap(339, Short.MAX_VALUE))
+                        .addGap(42, 42, 42)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(85, 85, 85)
+                .addComponent(jButton1)
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String equation =jTextField1.getText();
-        char operator,ch=' ';
-        int i,len,res;
-        len=equation.length();
-        for( i=0;i<len;i++)
-        {
-            ch=equation.charAt(i);
-            if(ch=='+' || ch=='-' || ch=='*'|| ch=='/'|| ch=='%')
-            {
-               break;
-            }
-        }
-        String lhs=equation.substring(0,i);
-        String rhs=equation.substring(i+1,len);
-        System.out.println(lhs);
-        System.out.println(rhs);
-       if(ch=='+')
-           res=Integer.parseInt(lhs)+Integer.parseInt(rhs);
-       else if(ch=='-')
-           res=Integer.parseInt(lhs)-Integer.parseInt(rhs);
-       else if(ch=='*')
-           res=Integer.parseInt(lhs)*Integer.parseInt(rhs);
-       else if(ch=='/')
-            res=Integer.parseInt(lhs)/Integer.parseInt(rhs);
-       else 
-            res=Integer.parseInt(lhs)%Integer.parseInt(rhs);
-       jLabel3.setText(res+"");
-        
+       try
+       {
+          String source,target,data="";
+          int c;
+          source=jTextField1.getText();
+          target=jTextField2.getText();
+          FileReader fr=new FileReader(source);
+          FileWriter fw=new FileWriter(target);
+          while((c=fr.read())!=-1)
+              data+=(char)c;
+          fw.write(data);
+          fr.close();
+          fw.close();
+          jOptionPane1.showMessageDialog(this,"File Copid!");
+       }
+       catch(IOException e)
+               {
+               
+               }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -138,20 +127,20 @@ public class class11 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(class11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Class16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(class11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Class16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(class11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Class16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(class11.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Class16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new class11().setVisible(true);
+                new Class16().setVisible(true);
             }
         });
     }
@@ -160,8 +149,8 @@ public class class11 extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
