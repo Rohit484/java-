@@ -3,19 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gradleproject1;
+package HackerRank;
 
 /**
  *
- * @author DELL
+ * @author ROHIT PANDEY
  */
+import java.util.Scanner;
 public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+       Scanner s=new Scanner(System.in);
+       System.out.println("Enter your String Name: ");
+       String myString=s.next();
+       System.out.println("Enter your age: ");
+       int a=s.nextInt();
+       System.out.println("Here your name is: "+myString);
+       System.out.println("Here your age is: "+a);
+       
     }
     
 }
