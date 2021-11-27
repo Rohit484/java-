@@ -1,58 +1,51 @@
-import java.io.*; 
-  
-class GFG { 
-     
-  
-  
-static void indexedSequentialSearch(int arr[], int n, int k) 
-{ 
-    int elements[] = new int[20]; 
-    int indices[] = new int[20]; 
-    int temp, i; 
-    int j = 0, ind = 0, start=0, end=0; 
-    for (i = 0; i < n; i += 3) { 
-  
-        // Storing element 
-        elements[ind] = arr[i]; 
-  
-        // Storing the index 
-        indices[ind] = i; 
-        ind++; 
-    } 
-    if (k < elements[0]) { 
-        System.out.println("Not found"); 
-        return; 
-          
-    } 
-    else { 
-        for (i = 1; i <= ind; i++) 
-            if (k < elements[i]) { 
-                start = indices[i - 1]; 
-                end = indices[i]; 
-                break; 
-            } 
-    } 
-    for (i = start; i <= end; i++) { 
-        if (k == arr[i]) { 
-            j = 1; 
-            break; 
-        } 
-    } 
-    if (j == 1) 
-        System.out.println("Found at index "+ i); 
-    else
-        System.out.println("Not found"); 
-} 
-  
-// Driver code 
-  
-    public static void main (String[] args) { 
-        int arr[] = { 6, 7, 8, 9, 10 }; 
-    int n = arr.length; 
-  
-    // Element to search 
-    int k = 8; 
-    indexedSequentialSearch(arr, n, k); 
-    } 
-} 
-// This code is contributed by shs.. 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author ROHIT PANDEY
+ */
+class GFG
+{
+    public long power(long a,long b , long mod){
+        
+        long ans = 1L;
+        while(b>0){
+            if((b&1)!=0 ){
+                ans = (ans*a)%mod;
+            }
+            a = (a*a)%mod;
+            b>>=1;
+        }
+        return ans;
+    }
+    
+    public int nCr(int N,int R){
+        
+        long res= 1L;
+        //long deno=1L;
+        if(R > N-R){
+            R = N-R;
+        }
+        long mod =(long) 1e9+7;
+        for(int i=0;i<R;i++){
+            
+            res = (res *(N-i))%mod;
+            res= res*power(i+1 , mod-2 ,mod)%mod;
+            
+        }
+        
+        return (int)res;
+    }
+    public int totalWays(int N, int K)
+    {
+        if(K > N)return 0;
+        if(K==N)return 1;
+        
+        return nCr(N-1,K-1);
+        
+    }
+}
